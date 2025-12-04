@@ -22,9 +22,10 @@ setTimeout(function() {
 
 const rsvpBar = document.getElementById("RSVPbar");
 const button = document.getElementById('Coolify');
-button.style.fontSize = "0px";
+button.style.opacity = 0;
 
 function updateRSVPBar() {
+    document.getElementById('rsvpCOUNT').style.opacity = 100;
     increment++;
     if (increment >= currentRSVPCount) {
         //once completed going to the current rsvp count
@@ -50,6 +51,8 @@ function updateRSVPBar() {
 </div> for refference purposes*/
 
 function RSVPbutton(){
+    button.style.cursor = "none";
+    button.style.opacity = 100;
     button.style.fontSize = "4rem";
     button.className = "glitch";
     button.textContent = "Click here to RSVP";

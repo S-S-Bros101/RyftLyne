@@ -1,3 +1,4 @@
+/*This is a comment, use * and / to use it! */
 body {
     font-family: 'DotGothic16', sans-serif;
 
@@ -50,7 +51,7 @@ body {
   text-shadow: -2px 0 blue;
   clip: rect(0, 900px, 0, 0);
   animation: glitch-after 3.6s infinite linear alternate-reverse;
-}
+}/**/
 
 /*Overall mask*/
 @keyframes glitch {
@@ -93,6 +94,7 @@ body {
     border-radius: 12px;
     overflow:hidden;
     margin:auto;
+    opacity: 0;
     margin-top: 70px;
     border: 2px solid #ffffff;
 }
@@ -204,6 +206,63 @@ li a {
 
 /*End of Nav bar Components*/
 
+/*User Dropdown menu styling*/
+
+.UserSettings{
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 70px;
+    z-index: 2;
+    font-family: 'DotGothic16', sans-serif;
+    background-color: #a3a3a3;
+    color: #024450;
+    font-size: 12px;
+    padding: 8px 12px;
+    margin: 2px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+
+.UserPfp img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+.UserPfp {
+    border: 10px;
+}
+
+.DropdownMenu{
+    display: flex;
+    font-size: 7px;
+    flex-direction: column;
+    margin-top: 2px;
+    overflow: hidden;
+    max-height: 0px;
+    transition: max-height 0.3s ease;
+}
+
+.DropdownMenu a{
+    padding: 6px;
+    margin-bottom: 4px;
+    cursor:pointer;
+}
+
+.UserSettings:hover .DropdownMenu{
+    max-height: 100px;
+}
+
+.UserSettings:hover{
+    
+    background-color: #7c7c7c;
+}
+
+/*harry styles*/
+
 /*Mobile responsive and grid layout*/
 @media (max-width: 600px) {
     .container {
@@ -231,3 +290,56 @@ li a {
 
 }
 
+
+.UserPfp:hover::before,
+.UserPfp:hover::after {
+    animation-play-state: running;
+}
+
+.UserPfp::before,
+.UserPfp::after {
+    animation-play-state: paused;
+}
+
+
+.UserPfp {
+    position: relative;
+}
+
+.UserPfp img {
+    position: relative;
+    z-index: 2;
+}
+
+.UserPfp::before,
+.UserPfp::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: inherit;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    opacity: .2;
+    mix-blend-mode: lighten;
+    animation: glitchRGB 0.8s infinite;
+}
+
+.UserPfp::before {
+    transform: translate(-2px, 0);
+    filter: hue-rotate(90deg);
+}
+
+.UserPfp::after {
+    transform: translate(2px, 0);
+    filter: hue-rotate(270deg);
+}
+
+@keyframes glitchRGB {
+    0% { clip-path: inset(0 0 0 0); }
+    20% { clip-path: inset(10% 0 60% 0); }
+    40% { clip-path: inset(40% 0 20% 0); }
+    60% { clip-path: inset(25% 0 40% 0); }
+    80% { clip-path: inset(5% 0 70% 0); }
+    100% { clip-path: inset(0 0 0 0); }
+}

@@ -20,6 +20,17 @@
 <li><a href="RSVP.html">RSVP</a></li>
 </ul>
 </nav>
+<!--User settings and preferences--><div class="UserSettings">
+  <div id="CoolorsChange" class="UserPfp"><img src ="https://shapes.inc/api/public/avatar/ryomensukunamanga" 
+    height="60" width="60" ></div>
+  <div class="DropdownMenu">
+    <!--testing purposes-->
+    <button onclick="alert('Profile clicked')">Profile</button>
+    <button onclick="alert('Settings clicked')">Settings</button>
+    <!---->
+
+  </div>
+</div>
 <script src="about.js"></script>
 </body>
 </html>

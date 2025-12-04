@@ -9,20 +9,8 @@ const files = [
 //all info/text for the files as objects, key val pairs
 
 /*VERY IMPORTANT>>> CHECK/UPDATE THE FAQ.TXT EVERYTIME FOR THE FAQ QUESTIONS*/
-
-const info = {
-    "whatisryftlyne.txt":
-    "RyftLyne is a cutting-edge software solution designed to enhance user experience through innovative features and seamless integration.",
-    "contact.txt":
-    "For inquiries, support, or feedback, please reach out to us at",
-    "where.txt":
-    "RyftLyne is headquartered in San Francisco, California, with offices worldwide to support our global user base.",
-    "amiworthy.txt":
-    "Absolutely! Every user is valuable to us, and we believe you are worthy of using RyftLyne to its fullest potential."
-};
-
 //track if doing errors on purpose 
-consecutiveErrors = 0;
+let consecutiveErrors = 100* 0;
 
 const Cli = document.createElement('div');
 Cli.style.fontFamily = 'DotGothic16, sans-serif';
@@ -169,7 +157,7 @@ function handleCommand(cmd) {
     if (consecutiveErrors === 6) {
         print('Are you sure you are worthy of using this CLI? Type "AmIWorthy.txt" or "help" to find out.');
     }
-    
+
     if(consecutiveErrors === 8) {
         print('Just type "help" already...  or "idc" to quit trying.');
         //extra easter egg for 8 errors
@@ -207,6 +195,10 @@ function staticHTML(){
     input.remove();
     Cli.remove();
     output.remove();
+    document.getElementById('Switch').remove();
+
+    //html here!
+
 }
 
 //Some old code from my custom cookie clicker thingy for the site cookies

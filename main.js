@@ -42,7 +42,10 @@ function changeColorLooped() { //My idea but with a lil help from chatgpt
 setInterval(changeColorLooped, 10);
 //set to 10 ms for testing and 100 for acc use
 
-//Make the TitleScreen Fade in
+
+
+//Make the TitleScreen Fade in, deets below
+
 setTimeout(() => {
     let ID = setInterval(function() {
         opacity += 0.01;
@@ -53,3 +56,58 @@ setTimeout(() => {
         //Delay of 0.5s after init, then cycle for about 6 seconds
     }, 60);
 }, 500);
+
+
+//button 1 for the user dropdown
+const button1 = document.getElementById("PersonalStats");
+button1.addEventListener("click", onclick);
+
+//button 2 for the user after hovering over the pfp to expand dropdown menu
+const button2 = document.getElementById("Signout");
+button2.addEventListener("SignOut", onclick);
+
+//image effects
+const image = document.getElementById('pfp');
+
+
+//copied from about.js!!!
+let increase = false;
+let inputColor = 48;
+function ButtonColorChnage() {
+    if (inputColor === 40) {
+        increase = true;
+    }else if (inputColor === 110) {
+        increase = false;
+    }if (increase) {
+        inputColor++;
+
+    }   else {
+        inputColor--;
+
+    }
+    //infinity increases and decreases the brightness of the border
+    
+    //set border color to rgb value (black to gray to white, so only 1 value needed)
+button1.style.border = '2px solid rgb(' + inputColor + ', ' + inputColor + ', ' + inputColor + ')';
+button1.style.borderRadius = '5px';// the above code resets it so its over here!
+
+button2.style.border = '2px solid rgb(' + inputColor + ', ' + inputColor + ', ' + inputColor + ')';
+button2.style.borderRadius = '5px';// the above code resets it so its over here!
+
+}
+setInterval( ButtonColorChnage, 20);
+
+//set the opacity of the pfp
+ID = null;
+image.addEventListener("mouseover", () => {
+    //hovering
+    ID = setInterval(() => {
+    image.style.opacity = inputColor / 110;
+    }, 50);
+});
+image.addEventListener("mouseout", () => {
+    //not hovering
+    clearInterval(ID);
+    image.style.opacity = 1;
+    // adding more time to you
+});
