@@ -50,6 +50,8 @@ increase = false;//init the pusle effect
 inputColor = 68;
 input.style.marginTop = '1em';
 
+//add event listener to maek this a button
+document.getElementById("Switch").onclick = staticHTML;
 
 //place holder animation thingy for the cli
 let x = 2;

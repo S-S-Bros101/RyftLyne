@@ -1,4 +1,5 @@
 let bleaching = true;
+let opacity = 0;
 let ColorChange = [241, 211, 2];
 //im using an array of rgb values bc HEX values idk how to increment/decrement them lol
 const title = document.getElementById('title');
@@ -40,3 +41,15 @@ function changeColorLooped() { //My idea but with a lil help from chatgpt
 
 setInterval(changeColorLooped, 10);
 //set to 10 ms for testing and 100 for acc use
+
+//Make the TitleScreen Fade in
+setTimeout(() => {
+    let ID = setInterval(function() {
+        opacity += 0.01;
+        document.getElementById("title").style.opacity = opacity;
+        if (opacity >= 1) {
+            clearInterval(ID);
+        }
+        //Delay of 0.5s after init, then cycle for about 6 seconds
+    }, 60);
+}, 500);

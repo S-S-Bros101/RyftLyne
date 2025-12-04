@@ -14,21 +14,19 @@ body {
     text-align: center;
     color: white;
     padding: 20px 0;
-    font-size: 3em;
-    background-color: #0b2a43;
+    font-size: 14em;
+    opacity: 0;
 }
-
-
 
 /*Glitch Effect*/
 .glitch {
     border-radius: 20px;
-  position: relative;
-  color: rgb(255, 255, 255);
-  font-size: 4rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  animation: glitch 3s infinite;
+    position: relative;
+    color: rgb(255, 255, 255);
+    font-size: 4rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    animation: glitch 3s infinite;
 }
 
 .glitch::before, .glitch::after {
@@ -144,6 +142,24 @@ p {
 }
 
 /*Nav Bar Components*/
+
+    /*HTML switch button version*/
+.SwitchHtml {
+    color: #00f5e0; 
+    background-color: #0b2a43;
+    max-width: 30%;
+    border-radius: 5px;
+    overflow: hidden;
+    display: block;
+    padding: 0px;
+    margin: auto;
+    font-size: 3em;
+    text-align: center;
+    cursor: wait;
+}.SwitchHtml:hover{
+    background-color: #071c2c;
+}
+    /*end of it*/
 
 a {
     font-size: 2em;
