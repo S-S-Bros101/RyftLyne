@@ -1,4 +1,3 @@
-alert("Main.js loaded");
 let bleaching = true;
 let ColorChange = [241, 211, 2];
 //im using an array of rgb values bc HEX values idk how to increment/decrement them lol
@@ -15,6 +14,7 @@ function changeColorLooped() { //My idea but with a lil help from chatgpt
     } else if (ColorChange[0] === 241 && ColorChange[1] === 211 && ColorChange[2] === 2) {
         bleaching = true;
     }
+    //turning it white from golden
     if (bleaching) {
         if (ColorChange[0] < 255){
             ColorChange[0]++;
@@ -24,6 +24,7 @@ function changeColorLooped() { //My idea but with a lil help from chatgpt
             ColorChange[2]++;
         }
     } else {
+        //turning it golden to white
         if (ColorChange[0] > 241){
             ColorChange[0]--;
         }if (ColorChange[1] > 211) {

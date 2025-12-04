@@ -31,8 +31,7 @@ body {
   animation: glitch 3s infinite;
 }
 
-.glitch::before,
-.glitch::after {
+.glitch::before, .glitch::after {
   content: attr(data-text);
   position: absolute;
   top: 0;
@@ -55,7 +54,7 @@ body {
   animation: glitch-after 3.6s infinite linear alternate-reverse;
 }
 
-/* Main shake */
+/*Overall mask*/
 @keyframes glitch {
   0%   { transform: none; }
   20%  { transform: skew(0.5deg); }
@@ -65,7 +64,7 @@ body {
   100% { transform: none; }
 }
 
-/* Red layer */
+/*Red mask layer*/
 @keyframes glitch-before {
   0%   { clip: rect(10px, 9999px, 50px, 0); }
   20%  { clip: rect(60px, 9999px, 80px, 0); }
@@ -75,7 +74,7 @@ body {
   100% { clip: rect(20px, 9999px, 70px, 0); }
 }
 
-/* Blue layer */
+/*Blue mask layer*/
 @keyframes glitch-after {
   0%   { clip: rect(40px, 9999px, 90px, 0); }
   20%  { clip: rect(10px, 9999px, 40px, 0); }
@@ -121,6 +120,8 @@ body {
     margin-bottom: 20px;
 }
 
+/*End of Loading bar effect*/
+
 h1 {
     font-size: 2.5em;
     margin-bottom: 10px;
@@ -141,6 +142,8 @@ h2 {
 p {
     margin-bottom: 15px;
 }
+
+/*Nav Bar Components*/
 
 a {
     font-size: 2em;
@@ -178,6 +181,13 @@ li a {
     text-decoration: none;
 }
 
+.navBar {
+    list-style: none;
+    display: inline-flex;
+}
+
+/*End of Nav bar Components*/
+
 /*Mobile responsive and grid layout*/
 @media (max-width: 600px) {
     .container {
@@ -205,7 +215,3 @@ li a {
 
 }
 
-.navBar {
-    list-style: none;
-    display: inline-flex;
-}

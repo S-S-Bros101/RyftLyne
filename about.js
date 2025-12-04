@@ -1,10 +1,9 @@
 //all files that come in the help cmd
 const files = [
-    "WhatIsRyftLyne.txt",
-    "Contact.txt",
-    "Where.txt",
-    "WheelEvent.txt",
-    "AmIWorthy.txt"
+    "whatisryftlyne.txt",
+    "contact.txt",
+    "where.txt",
+    "amiworthy.txt"
 ];
 
 //all info/text for the files as objects, key val pairs
@@ -12,13 +11,13 @@ const files = [
 /*VERY IMPORTANT>>> CHECK/UPDATE THE FAQ.TXT EVERYTIME FOR THE FAQ QUESTIONS*/
 
 const info = {
-    "WhatIsRyftLyne.txt":
+    "whatisryftlyne.txt":
     "RyftLyne is a cutting-edge software solution designed to enhance user experience through innovative features and seamless integration.",
-    "Contact.txt":
+    "contact.txt":
     "For inquiries, support, or feedback, please reach out to us at",
-    "Where.txt":
+    "where.txt":
     "RyftLyne is headquartered in San Francisco, California, with offices worldwide to support our global user base.",
-    "AmIWorthy.txt":
+    "amiworthy.txt":
     "Absolutely! Every user is valuable to us, and we believe you are worthy of using RyftLyne to its fullest potential."
 };
 
@@ -92,7 +91,24 @@ input.style.borderRadius = '5px';// the above code resets it so its over here!
 }
 
 //initial help print
-print('Welcome to the RyftLyne CLI! Type "help" to see a list of available files.');
+print('Welcome to the RyftLyne CLI! ');
+print('Type "help" to see a list of available files.');
+
+//check cookies to del the Cli version
+
+//delete console.logs debugging
+if(getCookie("CmDLine") != null || getCookie("CmDLine") === 0){
+    console.log("not null");
+    if(parseInt(getCookie("CmDLine")) === 1){
+        console.log("CMD not allowed");
+        staticHTML();
+    }else{
+        console.log("Console Allowed");
+    }
+}else{
+    console.log("cookie set");
+    setCookie("CmDLine",-1,29);
+}
 
 //Print the value
 function print(msg) {
@@ -126,7 +142,7 @@ function handleCommand(cmd) {
     }
 
     else if (cmd === 'exit') {
-        window.close();
+        terminate();
     }
     
     else if (files.includes(cmd)) {
@@ -158,14 +174,21 @@ function handleCommand(cmd) {
         //also if you type idc it will js say all the files listed
     }
 
-    if (consecutiveErrors >= 10) {
+    if (consecutiveErrors >= 10 && consecutiveErrors != 13) {
         output.innerHTML = '';
+        terminate();
         //A hidden reference to ecz
         print('Fatal Error: code 0 >>> Too many errors. Reset terminal to continue...');
         setTimeout(() => {
             location.reload();
-        }, 10000);//reload after 10 secs
+        }, 6000);//reload after 6 secs
     }
+}
+
+function terminate(){
+    consecutiveErrors = 13;
+    print("Session Terminated");
+    input.remove();
 }
 
 input.addEventListener('keydown', function(e) {
@@ -176,3 +199,28 @@ input.addEventListener('keydown', function(e) {
     }
 });
 setInterval(inputBarFocus, 30); //js make it pulse between dark and light
+
+//if someone wants to see the static html version (dissapointed smh)
+function staticHTML(){
+    input.remove();
+    Cli.remove();
+    output.remove();
+}
+
+//Some old code from my custom cookie clicker thingy for the site cookies
+function getCookie(name) {
+    let cname = name + "=";
+    let decoded = decodeURIComponent(document.cookie);
+    let ca = decoded.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i].trim();
+        if (c.indexOf(cname) === 0) return parseInt(c.substring(cname.length)) || 0;
+    }
+    return 0;
+}
+
+function setCookie(name, value, days) {
+    const d = new Date();
+    d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+    document.cookie = name + "=" + value + ";expires=" + d.toUTCString() + ";path=/";
+}

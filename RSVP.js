@@ -17,7 +17,7 @@ if(currentRSVPCount > 200){
 }
 setTimeout(function() {
     intervalID = setInterval(updateRSVPBar, waitTime);
-}, 500);
+}, 300);
 
 function updateRSVPBar() {
     increment++;
