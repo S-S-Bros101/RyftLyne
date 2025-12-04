@@ -97,7 +97,6 @@ body {
     overflow:hidden;
     margin:auto;
     margin-top: 70px;
-    testing 123
     border: 2px solid #ffffff;
 }
 
@@ -108,7 +107,7 @@ body {
     height: 100%;
     width: 0;
     background: linear-gradient(90deg,#00f5e0,#58f358);
-    transition: width 1.2s ease-in-out;
+    transition: width 0.2 ease-in-out;
 }
 
 .rsvpContainer {
