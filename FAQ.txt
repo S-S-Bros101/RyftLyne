@@ -1,0 +1,12 @@
+File for the information, update this please
+
+last update 12/3/2025, wednesday december 3rd 2025!
+
+ "WhatIsRyftLyne.txt":
+    "RyftLyne is a cutting-edge software solution designed to enhance user experience through innovative features and seamless integration.",
+    "Contact.txt":
+    "For inquiries, support, or feedback, please reach out to us at",
+    "Where.txt":
+    "RyftLyne is headquartered in San Francisco, California, with offices worldwide to support our global user base.",
+    "AmIWorthy.txt":
+    "Absolutely! Every user is valuable to us, and we believe you are worthy of using RyftLyne to its fullest potential."
