@@ -1,38 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About RyftLyne</title>
-<link rel="stylesheet" href="./styles.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap">
-<link rel="icon" type="image/png" href="ryftlyne-logo.png">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&display=swap">
-<style>
-    /* inline css only bc its specific to this page*/
-    ::selection{
-        color: black;
-        background-color: white;
-        /*The text will be black and the highlight will be white*/
-    }::-moz-selection {
-        color: rgb(0, 0, 0);
-        background-color: rgb(255, 255, 255);
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About RyftLyne</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap">
+    <link rel="icon" type="image/png" href="ryftlyne-logo.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&display=swap">
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
+    
+    <nav class="navBar">
+        <ul>
+            <!-- Navigation Bar -->
+            <li><a href="index.html">RyftLyne</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="RSVP.html">RSVP</a></li>
+        </ul>
+    </nav>
 
-<nav class="navBar">
-<ul>
-<!-- Navigation Bar -->
-<li><a href="index.html">RyftLyne</a></li>
-<li><a href="shop.html">Shop</a></li>
-<li><a href="about.html">About</a></li>
-<li><a href="RSVP.html">RSVP</a></li>
-</ul>
-</nav>
-<!--Switch button for CLI to html, but you already knew that or you wouldnt see this-->
-<h3 class="SwitchHtml" id="Switch" >Switch to HTML?</h3>
-<script src="about.js"></script>
+    <!--Text that appears only if hovered over-->
+    <h1 id="What" class="FAQ"></h1>
+    <p id="Whattext" class="faq"></p>
+    
+    <h1 class="FAQ" id ="Contact"></h1>
+    <p class="faq" id ="Contacttext"></p>
+    
+    <h1 class="FAQ" id ="Where"></h1>
+    <p class="faq" id ="Wheretext"></p>
+    
+    <h1 class="FAQ" id ="Who"></h1>
+    <p class="faq" id ="Whotext"></p>
+    
+    <!--Switch button for CLI to html, but you already knew that or you wouldnt see this-->
+    <h3 class="SwitchHtml" id="Switch" >Switch to HTML?</h3>
+    <script src="about.js"></script>
 </body>
 </html>

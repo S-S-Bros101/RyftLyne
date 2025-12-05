@@ -34,13 +34,13 @@ function updateRSVPBar() {
         RSVPbutton();
     }
     percent = increment / fullrsvpCount;//current rsvp count over max rsvp count
-
-   rsvpBar.style.width = (percent * 100) + "%";//set the bar
-
-   rsvpBar.innerHTML = 
+    
+    rsvpBar.style.width = (percent * 100) + "%";//set the bar
+    
+    rsvpBar.innerHTML = 
     "<span style='width:100%;text-align:center;display:block;'>" + increment +"/"+
     fullrsvpCount + "</span>";
-
+    
     document.getElementById("titleCard").innerText = increment + " RSVPs!";
 }
 

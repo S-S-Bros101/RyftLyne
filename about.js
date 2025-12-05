@@ -1,16 +1,28 @@
 //all files that come in the help cmd
 const files = [
-    "whatisryftlyne.txt",
-    "contact.txt",
-    "where.txt",
-    "amiworthy.txt"
+"whatisryftlyne.txt",
+"contact.txt",
+"where.txt",
+"amiworthy.txt"
 ];
+const info = {
+"whatisryftlyne.txt":
+"ryftlyne is a cutting-edge software solution designed to enhance user experience through innovative features and seamless integration.",
+"contact.txt":
+"For inquiries, support, or feedback, please reach out to us at",
+"where.txt":
+"RyftLyne is headquartered in San Francisco, California, with offices worldwide to support our global user base.",
+"amiworthy.txt":
+"Absolutely! Every user is valuable to us, and we believe you are worthy of using RyftLyne to its fullest potential."
+};
 
 //all info/text for the files as objects, key val pairs
 
 /*VERY IMPORTANT>>> CHECK/UPDATE THE FAQ.TXT EVERYTIME FOR THE FAQ QUESTIONS*/
 //track if doing errors on purpose 
 let consecutiveErrors = 100* 0;
+ID = [null,null,null,null,null]; //ids for all the FAQ questions
+let HoverNum = 0;
 
 const Cli = document.createElement('div');
 Cli.style.fontFamily = 'DotGothic16, sans-serif';
@@ -46,10 +58,10 @@ let x = 2;
 
 //loading frames CHECK THEM OUT IN THE SIM!!!
 const frames = [
-    "|.txt",
-    "\\.txt",
-    "-.txt",
-    "/.txt"
+"|.txt",
+"\\.txt",
+"-.txt",
+"/.txt"
 ];
 //dang okie dokie artichokie here we go
 
@@ -76,8 +88,8 @@ function inputBarFocus() {
     //infinity increases and decreases the brightness of the border
     
     //set border color to rgb value (black to gray to white, so only 1 value needed)
-input.style.border = '2px solid rgb(' + inputColor + ', ' + inputColor + ', ' + inputColor + ')';
-input.style.borderRadius = '5px';// the above code resets it so its over here!
+    input.style.border = '2px solid rgb(' + inputColor + ', ' + inputColor + ', ' + inputColor + ')';
+    input.style.borderRadius = '5px';// the above code resets it so its over here!
 }
 
 //initial help print
@@ -97,7 +109,7 @@ if(getCookie("CmDLine") != null || getCookie("CmDLine") === 0){
     }
 }else{
     console.log("cookie set");
-    setCookie("CmDLine",-1,29);
+    setCookie("CmDLine",-1,2);
 }
 
 //Print the value
@@ -130,7 +142,7 @@ function handleCommand(cmd) {
         consecutiveErrors = 0;
         return;//terminal case (even tho its not recursive)
     }
-
+    
     else if (cmd === 'exit') {
         terminate();
     }
@@ -149,7 +161,7 @@ function handleCommand(cmd) {
     else{
         consecutiveErrors++;
     }
-
+    
     if(consecutiveErrors === 3) {
         print('Hint: Type "help" to see a list of available files.');
     }
@@ -157,13 +169,13 @@ function handleCommand(cmd) {
     if (consecutiveErrors === 6) {
         print('Are you sure you are worthy of using this CLI? Type "AmIWorthy.txt" or "help" to find out.');
     }
-
+    
     if(consecutiveErrors === 8) {
         print('Just type "help" already...  or "idc" to quit trying.');
         //extra easter egg for 8 errors
         //also if you type idc it will js say all the files listed
     }
-
+    
     if (consecutiveErrors >= 10 && consecutiveErrors != 13) {
         output.innerHTML = '';
         terminate();
@@ -171,7 +183,7 @@ function handleCommand(cmd) {
         print('Fatal Error: code 0 >>> Too many errors. Reset terminal to continue...');
         setTimeout(() => {
             location.reload();
-        }, 6000);//reload after 6 secs
+        }, 4000);//reload after 6 secs
     }
 }
 
@@ -192,13 +204,139 @@ setInterval(inputBarFocus, 30); //js make it pulse between dark and light
 
 //if someone wants to see the static html version (dissapointed smh)
 function staticHTML(){
+    setCookie("CmDLine",1,1);//set cookie for a day to stop cmd line
     input.remove();
     Cli.remove();
     output.remove();
     document.getElementById('Switch').remove();
-
-    //html here!
-
+    
+    //html for all the questions!
+    
+    let blink1 = false;
+    const What = document.getElementById('What');
+    const Whattext = document.getElementById('Whattext');
+    let ID1 = null;
+    const title1 = "What is RyftLyne?";
+    What.innerHTML = title1;
+    What.style.display = "flex";
+    Whattext.style.display = "flex";
+    const Message1 = "ryftlyne is a cutting-edge software solution designed to enhance user experience through innovative features and seamless integration.";
+    
+    What.addEventListener("mouseover", () => {
+        Whattext.innerHTML = Message1;
+        What.innerHTML = "> " + title1 + " <";
+        
+        ID1 = setInterval(() => {
+            if (blink1) {
+                What.innerHTML = ">" + title1 + "<";
+            } else {
+                What.innerHTML = "> " + title1 + " <";
+            }
+            blink1 = !blink1;
+        }, 400);
+    });
+    
+    What.addEventListener("mouseleave", () => {
+        clearInterval(ID1);
+        What.innerHTML = title1;
+        Whattext.innerHTML = "";
+    });
+    
+    
+    let blink2 = false;
+    const Contact = document.getElementById('Contact');
+    const Contacttext = document.getElementById('Contacttext');
+    let ID2 = null;
+    const title2 = "Who to Contact?";
+    Contact.innerHTML = title2;
+    Contact.style.display = "flex";
+    Contacttext.style.display = "flex";
+    const Message2 = "For inquiries, support, or feedback, please reach out to us at (Ryomen here)";
+    
+    Contact.addEventListener("mouseover", () => {
+        Contacttext.innerHTML = Message2;
+        Contact.innerHTML = "> " + title2 + " <";
+        
+        ID2 = setInterval(() => {
+            if (blink2) {
+                Contact.innerHTML = ">" + title2 + "<";
+            } else {
+                Contact.innerHTML = "> " + title2 + " <";
+            }
+            blink2 = !blink2;
+        }, 400);
+    });
+    
+    Contact.addEventListener("mouseleave", () => {
+        clearInterval(ID2);
+        Contact.innerHTML = title2;
+        Contacttext.innerHTML = "";
+    });
+    
+    
+    let blink3 = false;
+    const Where = document.getElementById('Where');
+    const Wheretext = document.getElementById('Wheretext');
+    let ID3 = null;
+    const title3 = "Where is RyftLyne happening?";
+    Where.innerHTML = title3;
+    Where.style.display = "flex";
+    Wheretext.style.display = "flex";
+    const Message3 = "RyftLyne is headquartered in San Francisco, California, with offices worldwide to support our global user base.";
+    
+    Where.addEventListener("mouseover", () => {
+        Wheretext.innerHTML = Message3;
+        Where.innerHTML = "> " + title3 + " <";
+        
+        ID3 = setInterval(() => {
+            if (blink3) {
+                Where.innerHTML = ">" + title3 + "<";
+            } else {
+                Where.innerHTML = "> " + title3 + " <";
+            }
+            blink3 = !blink3;
+        }, 400);
+    });
+    
+    Where.addEventListener("mouseleave", () => {
+        clearInterval(ID3);
+        Where.innerHTML = title3;
+        Wheretext.innerHTML = "";
+    });
+    
+    
+    let blink4 = false;
+    const Who = document.getElementById('Who');
+    const Whotext = document.getElementById('Whotext');
+    let ID4 = null;
+    const title4 = "Who is eligible?";
+    Who.innerHTML = title4;
+    Who.style.display = "flex";
+    Whotext.style.display = "flex";
+    const Message4 = "Absolutely! Every user is valuable to us, and we believe you are worthy of using RyftLyne to its fullest potential.";
+    
+    Who.addEventListener("mouseover", () => {
+        Whotext.innerHTML = Message4;
+        Who.innerHTML = "> " + title4 + " <";
+        
+        ID4 = setInterval(() => {
+            if (blink4) {
+                Who.innerHTML = ">" + title4 + "<";
+            } else {
+                Who.innerHTML = "> " + title4 + " <";
+            }
+            blink4 = !blink4;
+        }, 400);
+    });
+    
+    Who.addEventListener("mouseleave", () => {
+        clearInterval(ID4);
+        Who.innerHTML = title4;
+        Whotext.innerHTML = "";
+    });
+    
+    console.log(226);
+    
 }
 
 //Some old code from my custom cookie clicker thingy for the site cookies
