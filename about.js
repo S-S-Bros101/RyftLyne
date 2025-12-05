@@ -211,6 +211,14 @@ function staticHTML(){
     document.getElementById('Switch').remove();
     
     //html for all the questions!
+
+    /* 
+    Please note that each question has its own set of variables to hold it
+    It works by setting a var to the consistent question and answer
+    when hovered over the answer appears and the title gets breathing brackets that move 
+    using intervals, and swap every 0.4 seconds
+    
+    */
     
     let blink1 = false;
     const What = document.getElementById('What');
