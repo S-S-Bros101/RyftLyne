@@ -1,42 +1,45 @@
+SignedIn = true;
 itemnum = 0;
 ItemDetails = [];
 ShopItems = [];
-let bytes = 2000;
+let bytez = 4000;
+let button1 = document.getElementById("PersonalStats");
+let button2 = document.getElementById("Signout");
 // MY COOL new CURRENCY!!!
 /*
-Per hour you get>>> 48 bitz per hour
-Bitz
+Per hour you get>>> 48 bytez per hour
+bytez
 > Base unit
 
-Bytez
-> 128 bitz
+Bytz
+> 128 bytez
 
-Kilobytez
-> 288 bitz
-> 2.25 Bytez
+Kilobytz
+> 288 bytez
+> 2.25 Bytz
 
-Megabytez
-> 608 bitz
-> 4.22 Bytez
-> 2.11 Kilobytez
+Megabytz
+> 608 bytez
+> 4.22 Bytz
+> 2.11 Kilobytz
 
-Gigabytez
-> 1248 bitz
-> 9.75 Bytez
-> 4.33 Kilobytez
-> 2.05 Megabytez
+Gigabytz
+> 1248 bytez
+> 9.75 Bytz
+> 4.33 Kilobytz
+> 2.05 Megabytz
 
-Hackabytez
-> 2528 bitz
-> 19.75 Bytez
-> 8.78 Kilobytez
-> 4.16 Megabytez
-> 2.03 Gigabytez
+Hackabytz
+> 2528 bytez
+> 19.75 Bytz
+> 8.78 Kilobytz
+> 4.16 Megabytz
+> 2.03 Gigabytz
 
-And so you must code for 2528 bitz or about 52 hours
+And so you must code for 2528 bytez or about 52 hours
 
 the formula for getting the conversion is 
-unit in bitz = (previous units value in bitz + 16) * 2
+unit in bytez = (previous units value in bytez + 16) * 2
 
 And you get the ticket to the physical location by buying the hackabyte
 NOte the symbols look a little too similar to cryptocurrency :cryin:
@@ -54,83 +57,22 @@ NOte the symbols look a little too similar to cryptocurrency :cryin:
 //create a thingy to budget to find out how many hours you have to do to afford something in hc
 
 
-function mybytes(){
+function mybytez(){
+    
 }
 
 
-function CreateProduct(Name, Description, ImageSrc, Cost){
-    let canBuyCount = Math.floor(bytes / Cost);
-    itemnum++;//next item
-    
-    ItemDetails = [Name, Description, Cost, ImageSrc];//Save details of product
-    ShopItems.push(ItemDetails);//append to end of ShopItems 2d array
-    
-    //create the bg of the card
-    const card = document.createElement("div");
-    card.className = "product";
-    
-    /* Create all html elements for the product  */
-    
-    const img = document.createElement("img");
-    img.width = 150;
-    img.height = 150;
-    img.src = ImageSrc;
-    img.alt = Name;
-    
-    const title = document.createElement("h2");
-    title.textContent = Name;
-    
-    const desc = document.createElement("p");
-    desc.textContent = Description;
-    desc.className = "description whatisitlol";
-    
-    const costSection = document.createElement("div");
-    costSection.className = "cost-section";
-    
-    const icon = document.createElement("img");
-    icon.src = "bytes_icon.png";//connect to icon recieved from backend
-    icon.alt = "bytes";
-    icon.className = "icon";
-    icon.width = 16;
-    icon.height = 16;
-    
-    const cost = document.createElement("span");
-    cost.className = "cost moolah";
-    cost.textContent = Cost + " Moolah";
-    
-    const InsufficientFunds = document.createElement("span");
-    InsufficientFunds.className = "insufficient-funds";
-    InsufficientFunds.textContent = "Not enough bytes";
-    
-    const CanAfford = document.createElement("span");
-    CanAfford.className = "canafford";
-    CanAfford.textContent = "You can buy " + (Math.round(bytes/Cost));
-    
-    // Append elements in costSection
-    costSection.appendChild(icon);
-    costSection.appendChild(cost);
-    if (bytes >= Cost) {
-        if (canBuyCount > 0) costSection.appendChild(CanAfford);
-    } else {
-        costSection.appendChild(InsufficientFunds);
-    }
-    
-    //attach to div section
-    card.appendChild(img);
-    card.appendChild(title);
-    card.appendChild(desc);
-    card.appendChild(costSection);
-    
-    document.getElementById("Shop").appendChild(card);
-}
-
+window.onload = () => {
+    showCurrency();
+    button1 = document.getElementById("PersonalStats");
+    button2 = document.getElementById("Signout");
+};
 
 //code imported from main.js to change the border of the buttons
 
+let cookie = getCookie("Currency");
 let increase = false;
 let inputColor = 48;
-const button1 = document.getElementById("PersonalStats");
-const button2 = document.getElementById("Signout");
 
 function ButtonColorChnage() {
     
@@ -160,15 +102,207 @@ function ButtonColorChnage() {
 setInterval( ButtonColorChnage, 20);
 
 //Create all shop items manually, insert costs through backend, enter key manually
-CreateProduct("Thingy", "What", "https://a.thumbs.redditmedia.com/ORzuv1AmOv8dWigyEryGNS4Jih5RoqPrwb5giTHVvy4.jpg", 10);
-CreateProduct("Thingy", "did", "https://a.thumbs.redditmedia.com/ORzuv1AmOv8dWigyEryGNS4Jih5RoqPrwb5giTHVvy4.jpg", 20);
-CreateProduct("Thingy", "yall", "https://a.thumbs.redditmedia.com/ORzuv1AmOv8dWigyEryGNS4Jih5RoqPrwb5giTHVvy4.jpg", 30);
-CreateProduct("Thingy", "expect", "https://a.thumbs.redditmedia.com/ORzuv1AmOv8dWigyEryGNS4Jih5RoqPrwb5giTHVvy4.jpg", 50);
-CreateProduct("Thingy", "lol", "https://a.thumbs.redditmedia.com/ORzuv1AmOv8dWigyEryGNS4Jih5RoqPrwb5giTHVvy4.jpg", 60);
+CreateProduct("Thingy","tets", "nope", "https://a.thumbs.redditmedia.com/ORzuv1AmOv8dWigyEryGNS4Jih5RoqPrwb5giTHVvy4.jpg", 10);
+CreateProduct("Thingy", "did", "", "https://a.thumbs.redditmedia.com/ORzuv1AmOv8dWigyEryGNS4Jih5RoqPrwb5giTHVvy4.jpg", 202);
+CreateProduct("Thingy", "yall", "", "https://a.thumbs.redditmedia.com/ORzuv1AmOv8dWigyEryGNS4Jih5RoqPrwb5giTHVvy4.jpg", 30);
+CreateProduct("Thingy", "expect", "", "https://a.thumbs.redditmedia.com/ORzuv1AmOv8dWigyEryGNS4Jih5RoqPrwb5giTHVvy4.jpg", 5320);
+CreateProduct("Thingy", "lol", "", "https://a.thumbs.redditmedia.com/ORzuv1AmOv8dWigyEryGNS4Jih5RoqPrwb5giTHVvy4.jpg", 60);
 
+let ID1 = null;
+let blink1 = false;
 function showCurrency(){
-    getCookie("Currency");
+    const Moolah = document.getElementById('currentValue');
+    
+    if(!SignedIn){
+        Moolah.innerHTML = "Please Sign in!";
+        return;
+    }
+    
+    if(getCookie("Currency") === 0){
+        setCookie("Currency", 6, 30);
+    }
+    cookie = getCookie("Currency");
+    
+    Moolah.addEventListener("mouseover", () => {
+        clearInterval(ID1);
+        Moolah.innerHTML = "> Change Byte Size? <";
+        ID1 = setInterval(() => {
+            if (blink1) {
+                Moolah.innerHTML = ">Change Byte Size?<";
+            } else {
+                Moolah.innerHTML = "> Change Byte Size? <";
+            }
+            blink1 = !blink1;
+        }, 400);
+    });
+    
+    const CurrentMoolah = getbestcurrency(bytez, currencyDivisor(cookie),cookie);
+    
+    Moolah.innerHTML = CurrentMoolah;
+    
+    Moolah.addEventListener("mouseleave", () => {
+        clearInterval(ID1);
+        Moolah.innerHTML = CurrentMoolah;
+    });
 }
+
+function CreateProduct(Name, Description, shortDescription, ImageSrc, Cost){
+    let canBuyCount = Math.floor(bytez / Cost);
+    itemnum++;//next item
+    
+    ItemDetails = [Name, Description, Cost, ImageSrc];//Save details of product
+    ShopItems.push(ItemDetails);//append to end of ShopItems 2d array
+    
+    //create the bg of the card
+    const card = document.createElement("div");
+    card.className = "product";
+    
+    /* Create all html elements for the product  */
+    
+    const img = document.createElement("img");
+    img.width = 150;
+    img.height = 150;
+    img.src = ImageSrc;
+    img.alt = Name;
+    
+    const desc = document.createElement("p");
+    if(Description.length > 100){
+        desc.textContent = shortDescription;
+        desc.className = "description";
+    }else{
+        desc.textContent = Description;
+        desc.className = "description";
+    }
+    
+    const costSection = document.createElement("div");
+    costSection.className = "cost-section";
+    
+    const icon = document.createElement("img");
+    icon.src = currencyAt(cookie) + ".png";//connect to icon recieved from backend, in uppercase!!!
+    icon.alt = "bytezValue";
+    icon.className = "icon";
+    icon.width = 16;
+    icon.height = 16;
+    
+    const cost = document.createElement("span");
+    cost.className = "moolah";
+    //convert to specified currency
+    
+    // console.log(JSON.parse(getbestcurrency(bytez, currencyDivisor(cookie), cookie).split(" ")[0]));
+    if(cookie === 1){
+        cost.textContent = Math.floor(23232322) + " bitz";
+    }else{
+        
+        cost.textContent = getbestcurrency(Cost, currencyDivisor(6), 6);
+        
+    }
+    
+    
+    const title = document.createElement("h2");
+    
+    // Append elements in costSection
+    costSection.appendChild(icon);
+    costSection.appendChild(cost);
+    
+    if (bytez >= Cost) {
+        if (canBuyCount > 0) {
+            const CanAfford = document.createElement("span");
+            CanAfford.className = "canafford";
+            CanAfford.textContent = "You can buy " + (Math.round(bytez/Cost));
+            title.appendChild(CanAfford);
+            title.className = "canafford";
+        }
+    } else {
+        const InsufficientFunds = document.createElement("span");
+        InsufficientFunds.className = "insufficient-funds";
+        InsufficientFunds.textContent = "Not enough bytez";
+        title.className = "insufficient-funds";
+        title.appendChild(InsufficientFunds);
+    }
+    
+    //attach to div section
+    card.appendChild(img);
+    card.appendChild(title);
+    card.appendChild(desc);
+    card.appendChild(costSection);
+    
+    document.getElementById("Shop").appendChild(card);
+}
+
+//What is the currency at the index (1 through 6)
+function currencyAt(num){
+    switch (num) {
+        case 1:
+        return "bytez"; 
+        
+        case 2:
+        return "Bytz";
+        
+        case 3:
+        return "Kilobytz";
+        
+        case 4:
+        return "Megabytz";
+        
+        case 5:
+        return "Gigabytz"; 
+        
+        case 6:
+        return "Hackabytz"; 
+        
+        default:
+        return "Error code";
+    }
+}
+
+//What is the conversion of the specified currency to bytez
+function currencyDivisor(num){
+    switch (num) {
+        case 1:
+        return 1; 
+        
+        case 2:
+        return 128;
+        
+        case 3:
+        return 288;
+        
+        case 4:
+        return 608;
+        
+        case 5:
+        return 1248; 
+        
+        case 6:
+        return 2528; 
+        
+        default:
+        return bytez;
+        
+    }
+}
+
+//give the currency that doesnt have a fraction
+function getbestcurrency(moolah, divisor, currency) {
+    
+    //base case, its pointless to divive, results in 0
+    if (moolah === 0) {
+        return "0 bytez";
+    }
+    
+    //recursive case, if too big divisor (a fraction) go to smaller currency
+    if (moolah / divisor < 1) {
+        if (currency <= 1) {
+            return Math.floor(moolah) + " bytez";
+        }
+        return getbestcurrency(moolah, currencyDivisor(currency - 1), currency - 1);
+    }
+    
+    //if currency is not a fraction
+    return (moolah / divisor).toFixed(2) + " " + currencyAt(currency);
+}
+
+
 
 function getCookie(name) {
     let cname = name + "=";
@@ -181,5 +315,12 @@ function getCookie(name) {
     return 0;
 }
 
+function setCookie(name, value, days) {
+    const d = new Date();
+    d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+    document.cookie = name + "=" + value + ";expires=" + d.toUTCString() + ";path=/";
+}
+
 function buyItem(num){
+    
 }

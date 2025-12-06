@@ -279,17 +279,11 @@ li a {
     0 0 25px #00c3ff;
 }
 
-.whatisitlol {
-    text-shadow:
-    0 0 8px #39ff14,
-    0 0 16px #39ff14,
-    0 0 28px #39ff14;
-}
-
 .product {
     background: linear-gradient(145deg, #122b40, #1a3c58);
     border-radius: 21px;
-    width: 220px;
+    max-width: 220px;
+    overflow-wrap: 20px;
     padding: 15px;
     color: rgb(255, 255, 255);
     font-family: 'DotGothic16', sans-serif;
@@ -317,9 +311,12 @@ li a {
 
 .product .description {
     font-size: 1rem;
-    color: #bbb;
+    font-weight: bold;
+    color: #39ff14;
     margin-bottom: 12px;
     text-align: center;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 .cost-section {
@@ -332,13 +329,6 @@ li a {
     position: relative;
 }
 
-.cost-section .icon {    
-    text-shadow:
-    0 0 6px #66cfff,
-    0 0 12px #66cfff,
-    0 0 22px #66cfff;
-}
-
 .label {
     margin-left: auto;
     font-size: 0.75rem;
@@ -348,15 +338,40 @@ li a {
     white-space: nowrap;
 }
 
-.label .insufficient-funds{
-    background-color: #ff6f6f;
-    color: white;
+.insufficient-funds {
+    text-shadow: none;/*took a while to fix this error lol*/
+    border-radius: 10px;
+    color: #ff3131;
 }
 
-.label .canafford {
-    background-color: #6faaff;
-    color: white;
+.insufficient-funds:hover{
+    font-weight: bold;
+    transition: ease 0.3s;
+    color: #fd3434;
+    text-shadow:
+    0 0 22px #ff1a3a,
+    0 0 14px #ff2a5a,
+    0 0 8px #ff4a7a,
+    0 0 4px #ff7a95;
 }
+
+
+
+.canafford {
+    text-shadow: none;
+    border-radius: 10px;
+    color: #00ff44;
+    font-weight: bold;
+}
+
+.canafford:hover{
+    text-shadow:
+    0 0 4px #00ff44,
+    0 0 8px #6aff6a,
+    0 0 14px #00ff00,
+    0 0 22px #00ff00;
+}
+
 
 .NetWorth{
     position: fixed;
@@ -371,13 +386,14 @@ li a {
     border-radius: 14px;
     z-index: 1000;
     margin-top: 20px;
-
+    
 }.NetWorth:hover {
+    cursor: none;
     transition: ease 0.3s;
     text-shadow:
-        0 0 8px #ff9900,
-        0 0 16px #ffb733,
-        0 0 28px #ffcc66,
-        0 0 40px #ffdd88;
+    0 0 8px #ff9900,
+    0 0 16px #ffb733,
+    0 0 28px #ffcc66,
+    0 0 40px #ffdd88;
 }
 
