@@ -5,6 +5,10 @@ const files = [
 "where.txt",
 "amiworthy.txt"
 ];
+
+let increase = false;
+let inputColor = 48;
+
 const info = {
 "whatisryftlyne.txt":
 "ryftlyne is a cutting-edge software solution designed to enhance user experience through innovative features and seamless integration.",
@@ -65,6 +69,41 @@ const frames = [
 ];
 //dang okie dokie artichokie here we go
 
+const button1 = document.getElementById("PersonalStats");
+const button2 = document.getElementById("Signout");
+
+// Pulsing border color variables
+
+
+function ButtonColorChnage() {
+    
+    // when to reverse the pulse
+    if (inputColor === 40) {
+        increase = true;
+    } else if (inputColor === 110) {
+        increase = false;
+    }
+    
+    // increment or decrement brightness
+    if (increase) {
+        inputColor++;
+    } else {
+        inputColor--;
+    }
+    
+    // apply border color to both buttons
+    const rgb = 'rgb(' + inputColor + ', ' + inputColor + ', ' + inputColor + ')';
+    
+    button1.style.border = `2px solid ${rgb}`;
+    button1.style.borderRadius = '5px';
+    
+    button2.style.border = `2px solid ${rgb}`;
+    button2.style.borderRadius = '5px';
+}
+
+// animate every 20ms
+setInterval(ButtonColorChnage, 20);
+
 setInterval(() => {
     input.placeholder = frames[x % 4];
     x++;
@@ -100,16 +139,20 @@ print('Type "help" to see a list of available files.');
 
 //delete console.logs debugging
 if(getCookie("CmDLine") != null || getCookie("CmDLine") === 0){
-    console.log("not null");
+    // console.log("not null");
     if(parseInt(getCookie("CmDLine")) === 1){
-        console.log("CMD not allowed");
+        // console.log("CMD not allowed");
         staticHTML();
     }else{
-        console.log("Console Allowed");
+        // console.log("Console Allowed");
     }
 }else{
-    console.log("cookie set");
-    setCookie("CmDLine",-1,2);
+    // console.log("cookie set");
+    setCookie("CmDLine",-1,1);
+}
+
+if(getCookie("Currency") != null || getCookie("Currency") === 0 ){
+    setCookie("Currency", 1, 30);
 }
 
 //Print the value
@@ -211,13 +254,15 @@ function staticHTML(){
     document.getElementById('Switch').remove();
     
     //html for all the questions!
-
+    
     /* 
     Please note that each question has its own set of variables to hold it
     It works by setting a var to the consistent question and answer
     when hovered over the answer appears and the title gets breathing brackets that move 
-    using intervals, and swap every 0.4 seconds
-    
+    using intervals, and swap every 0.4 seconds, and the color gets darker.
+    when the title is not being hovered over, the answer dissapears, as well as the title
+    no longer has any breathing brackets, and teh color returns to normal.
+    The title is initially bright, but after you hover on it, it stays dark
     */
     
     let blink1 = false;
@@ -233,6 +278,7 @@ function staticHTML(){
     What.addEventListener("mouseover", () => {
         Whattext.innerHTML = Message1;
         What.innerHTML = "> " + title1 + " <";
+        What.style.color = "#6ba1f8";
         
         ID1 = setInterval(() => {
             if (blink1) {
@@ -248,6 +294,7 @@ function staticHTML(){
         clearInterval(ID1);
         What.innerHTML = title1;
         Whattext.innerHTML = "";
+        What.style.color = "#0062ffff";
     });
     
     
@@ -264,6 +311,7 @@ function staticHTML(){
     Contact.addEventListener("mouseover", () => {
         Contacttext.innerHTML = Message2;
         Contact.innerHTML = "> " + title2 + " <";
+        Contact.style.color = "#6ba1f8";
         
         ID2 = setInterval(() => {
             if (blink2) {
@@ -279,6 +327,7 @@ function staticHTML(){
         clearInterval(ID2);
         Contact.innerHTML = title2;
         Contacttext.innerHTML = "";
+        Contact.style.color = "#0062ffff";
     });
     
     
@@ -295,6 +344,7 @@ function staticHTML(){
     Where.addEventListener("mouseover", () => {
         Wheretext.innerHTML = Message3;
         Where.innerHTML = "> " + title3 + " <";
+        Where.style.color = "#6ba1f8";
         
         ID3 = setInterval(() => {
             if (blink3) {
@@ -310,6 +360,7 @@ function staticHTML(){
         clearInterval(ID3);
         Where.innerHTML = title3;
         Wheretext.innerHTML = "";
+        Where.style.color = "#0062ffff";
     });
     
     
@@ -326,6 +377,7 @@ function staticHTML(){
     Who.addEventListener("mouseover", () => {
         Whotext.innerHTML = Message4;
         Who.innerHTML = "> " + title4 + " <";
+        Who.style.color = "#6ba1f8";
         
         ID4 = setInterval(() => {
             if (blink4) {
@@ -341,13 +393,16 @@ function staticHTML(){
         clearInterval(ID4);
         Who.innerHTML = title4;
         Whotext.innerHTML = "";
+        Who.style.color = "#0062ffff";
     });
     
-    console.log(226);
+    // console.log(226);
     
 }
 
 //Some old code from my custom cookie clicker thingy for the site cookies
+
+//get cookie, not the "name" var needs to be a string
 function getCookie(name) {
     let cname = name + "=";
     let decoded = decodeURIComponent(document.cookie);
@@ -359,6 +414,7 @@ function getCookie(name) {
     return 0;
 }
 
+//set cookie
 function setCookie(name, value, days) {
     const d = new Date();
     d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));

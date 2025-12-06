@@ -13,6 +13,7 @@ body {
 }
 
 .FAQ{
+    /*this part is for the title*/
     text-align: center;
     font-size: 40px;
     display: none;
@@ -24,7 +25,6 @@ body {
     padding-right: 200px;
     text-align: center;
     font-size: 30px;
-    display: none;
     justify-content: center;
 }
 
@@ -110,7 +110,6 @@ body {
 }
 
 /*ENd of glitch effect*/
-
 /*Loading bar effect*/
 
 .RSVPCount {
@@ -152,7 +151,7 @@ h1 {
     font-size: 2.5em;
     margin-bottom: 10px;
     padding-bottom: 10px;
-    color: #3b82f6;
+    color: #6ba1f8;
 }
 
 h2 {
@@ -167,6 +166,28 @@ h2 {
 
 p {
     margin-bottom: 15px;
+}
+
+footer{
+    text-align: center;
+    justify-self: center;
+    padding: 15px;
+    color: #3b82f6;
+    font-family: 'DotGothic16', sans-serif;
+    max-width: 200px;
+    margin-top: 40px;
+}
+
+button{
+    font-family: 'DotGothic16', sans-serif;
+    border-radius: 15px;
+    font-size: 1em;
+    border-color: #071c2c;
+    background-color: #1b4353;
+    padding: 5px;
+}button:hover{
+    background-color: #14303b;
+    color: #000000;
 }
 
 /*Nav Bar Components*/

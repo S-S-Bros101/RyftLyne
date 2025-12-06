@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RSVP!</title>
     
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./RSVP.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap">
     <link rel="icon" type="image/png" href="ryftlyne-logo.png">
     <!--COol library for css animations my teacher gave me a long time ago lol-->
@@ -23,8 +23,8 @@
             <li><a href="RSVP.html">RSVP</a></li>
         </ul>
     </nav>
-    <div class="rsvpContainer">
-        <h1 style="font-size: 10em;" id="titleCard"></h1>
+    <div id="hide" class="rsvpContainer">
+        <h1 style="font-size: 6em;" id="titleCard"></h1>
         <!--Replace the RSVP Here! with "XYZ RSVPS!"-->
         <a id="Coolify" target="_blank" href="https://guthib.com" ></a>
     </div>
@@ -35,6 +35,27 @@
         <div class="rsvpCountDisplay" id="RSVPbar"></div></div>
         <p id="RSVPLabel"  target="_blank"></p>
     </div>
+    <div class="UserSettings">
+        <div id="CoolorsChange" class="UserPfp">
+            <!--Its supposed to open your slack account!-->
+            <a style="all: unset" target="_blank" href="https://guthib.com" ><img src ="https://shapes.inc/api/public/avatar/ryomensukunamanga" 
+            height="60" width="60" id="pfp" ></a>
+        </div>
+        <div class="DropdownMenu">
+            <!--testing purposes, still testing lol-->
+            <a href="Profile.html" id="PersonalStats" 
+            style="cursor:pointer">
+            <b>Profile</b>  
+        </a>
+        
+        <a href="https://guthib.com" id="Signout" target="_blank" 
+        style="cursor: pointer;">
+        <b>Log out</b>
+    </a>
+    <!---->
+</div>
     <script src="RSVP.js"></script>
+    <!--javaScript; its not java-->
+</div>
 </body>
 </html>

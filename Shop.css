@@ -1,0 +1,383 @@
+/*This is a comment, use * and / to use it! */
+body {
+    font-family: 'DotGothic16', sans-serif;
+    
+    background-image: linear-gradient(
+    to right,
+    #173753,
+    #1b4353
+    );
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+}
+
+product{
+    padding: 2px;
+    padding: auto;
+    margin: 2px 3px;
+}
+
+::selection{
+    color: black;
+    background-color: white;
+    /*The text will be black and the highlight will be white*/
+}::-moz-selection {
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+}
+
+/*Glitch Effect*/
+.glitch {
+    border-radius: 20px;
+    position: relative;
+    color: rgb(254, 254, 254);
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    animation: glitch 3s infinite;
+}
+
+.glitch::before, .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 red;
+    clip: rect(0, 900px, 0, 0);
+    animation: glitch-before 4s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 blue;
+    clip: rect(0, 900px, 0, 0);
+    animation: glitch-after 3.6s infinite linear alternate-reverse;
+}/**/
+
+/*Overall mask*/
+@keyframes glitch {
+    0%   { transform: none; }
+    20%  { transform: skew(0.5deg); }
+    40%  { transform: skew(-0.5deg); }
+    60%  { transform: translate(1px, -1px); }
+    80%  { transform: skew(0.3deg); }
+    100% { transform: none; }
+}
+
+/*Red mask layer*/
+@keyframes glitch-before {
+    0%   { clip: rect(10px, 9999px, 50px, 0); }
+    20%  { clip: rect(60px, 9999px, 80px, 0); }
+    40%  { clip: rect(30px, 9999px, 60px, 0); }
+    60%  { clip: rect(5px, 9998px, 40px, 0); }
+    80%  { clip: rect(80px, 9998px, 100px, 0); }
+    100% { clip: rect(20px, 9999px, 70px, 0); }
+}
+
+/*Blue mask layer*/
+@keyframes glitch-after {
+    0%   { clip: rect(40px, 9999px, 90px, 0); }
+    20%  { clip: rect(10px, 9999px, 40px, 0); }
+    40%  { clip: rect(70px, 9999px, 100px, 0); }
+    60%  { clip: rect(20px, 9999px, 60px, 0); }
+    80%  { clip: rect(50px, 9999px, 80px, 0); }
+    100% { clip: rect(0px, 9999px, 30px, 0); }
+}
+
+/*ENd of glitch effect*/
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    color: #6ba1f8;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    background-color: #00548b;
+    color: #60a5fa;
+    padding: 8px 12px;
+    display: inline-block;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+footer{
+    text-align: center;
+    justify-self: center;
+    padding: 15px;
+    color: #3b82f6;
+    font-family: 'DotGothic16', sans-serif;
+    max-width: 200px;
+    margin-top: 40px;
+}
+
+button{
+    font-family: 'DotGothic16', sans-serif;
+    border-radius: 15px;
+    font-size: 1em;
+    border-color: #071c2c;
+    background-color: #1b4353;
+    padding: 5px;
+}button:hover{
+    background-color: #14303b;
+    color: #000000;
+}
+
+/*Nav Bar Components*/
+
+a {
+    font-size: 2em;
+    color: #fff;
+    text-decoration: none;
+    padding: 0px 20px;
+    background-color: #2892d7;
+    transition: 0.2s;
+}
+
+a:hover {
+    background-color: #1d70a2;
+    color: #fff;
+}
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 0;
+    overflow: hidden;
+    background-color: aqua;
+}
+
+li{
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navBar {
+    list-style: none;
+    display: inline-flex;
+}
+
+/*End of Nav bar Components*/
+
+/*User Dropdown menu styling*/
+
+.UserSettings{
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 70px;
+    z-index: 2;
+    font-family: 'DotGothic16', sans-serif;
+    background-color: #a3a3a3;
+    color: #024450;
+    font-size: 12px;
+    padding: 8px 12px;
+    margin: 2px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+
+.UserPfp img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+.UserPfp {
+    border: 10px;
+}
+
+.DropdownMenu{
+    display: flex;
+    font-size: 7px;
+    flex-direction: column;
+    margin-top: 2px;
+    overflow: hidden;
+    max-height: 0px;
+    transition: max-height 0.3s ease;
+}
+
+.DropdownMenu a{
+    padding: 6px;
+    margin-bottom: 4px;
+    cursor:pointer;
+}
+
+.UserSettings:hover .DropdownMenu{
+    max-height: 100px;
+}
+
+.UserSettings:hover{
+    
+    background-color: #7c7c7c;
+}
+
+/*harry styles*/
+
+/*Mobile responsive and grid layout*/
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+        margin-top: 10px;
+        border-width: 2px;
+    }
+    
+    h1 {
+        font-size: 2em;
+    }
+    
+    h2 {
+        font-size: 1.3em;
+    }
+    
+    .skills {
+        gap: 8px;
+    }
+    
+    .skill-tag {
+        padding: 6px 12px;
+        font-size: 0.9em;
+    }
+    
+}
+
+#Shop {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.moolah {
+    text-shadow:
+    0 0 6px #00c3ff,
+    0 0 15px #00c3ff,
+    0 0 25px #00c3ff;
+}
+
+.whatisitlol {
+    text-shadow:
+    0 0 8px #39ff14,
+    0 0 16px #39ff14,
+    0 0 28px #39ff14;
+}
+
+.product {
+    background: linear-gradient(145deg, #122b40, #1a3c58);
+    border-radius: 21px;
+    width: 220px;
+    padding: 15px;
+    color: rgb(255, 255, 255);
+    font-family: 'DotGothic16', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product img {
+    border-radius: 12px;
+    margin-bottom: 10px;
+    object-fit: contain;
+}
+
+.product h2 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 4px #0008;
+    margin-bottom: 8px;
+    text-shadow: 
+    0 0 5px #4db8ff,
+    0 0 10px #4db8ff,
+    0 0 15px #4db8ff;
+}
+
+.product .description {
+    font-size: 1rem;
+    color: #bbb;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.cost-section {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #8e7be8;
+    position: relative;
+}
+
+.cost-section .icon {    
+    text-shadow:
+    0 0 6px #66cfff,
+    0 0 12px #66cfff,
+    0 0 22px #66cfff;
+}
+
+.label {
+    margin-left: auto;
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    border-radius: 10px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.label .insufficient-funds{
+    background-color: #ff6f6f;
+    color: white;
+}
+
+.label .canafford {
+    background-color: #6faaff;
+    color: white;
+}
+
+.NetWorth{
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #111;
+    color: rgb(255, 153, 0);
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 14px;
+    z-index: 1000;
+    margin-top: 20px;
+
+}.NetWorth:hover {
+    transition: ease 0.3s;
+    text-shadow:
+        0 0 8px #ff9900,
+        0 0 16px #ffb733,
+        0 0 28px #ffcc66,
+        0 0 40px #ffdd88;
+}
+
