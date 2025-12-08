@@ -1,21 +1,23 @@
 /*This is a comment, use * and / to use it! */
 body {
     font-family: 'DotGothic16', sans-serif;
-    
-    background-image: linear-gradient(
-    to right,
-    #173753,
-    #1b4353
-    );
+    background-image: radial-gradient(
+    #230041ff,
+    #000000,
+    #002438ff,
+    #000000,
+    #00192bff);
     margin: 0;
     padding: 0;
     font-size: 20px;
 }
 
-product{
+.product{
     padding: 2px;
-    padding: auto;
-    margin: 2px 3px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
 
 ::selection{
@@ -94,14 +96,15 @@ product{
 /*ENd of glitch effect*/
 
 h1 {
-    font-size: 2.5em;
+    font-size: 3em;
+    text-align: center;
     margin-bottom: 10px;
     padding-bottom: 10px;
     color: #6ba1f8;
 }
 
 h2 {
-    font-size: 1.5em;
+    font-size: 5em;
     margin-top: 30px;
     margin-bottom: 15px;
     background-color: #00548b;
@@ -129,9 +132,10 @@ button{
     border-radius: 15px;
     font-size: 1em;
     border-color: #071c2c;
-    background-color: #1b4353;
+    background-color: #21708f;
     padding: 5px;
-}button:hover{
+}
+button:hover{
     background-color: #14303b;
     color: #000000;
 }
@@ -232,7 +236,6 @@ li a {
 }
 
 .UserSettings:hover{
-    
     background-color: #7c7c7c;
 }
 
@@ -267,22 +270,30 @@ li a {
 
 #Shop {
     display: flex;
-    gap: 20px;
     flex-wrap: wrap;
-    padding: 20px;
+    justify-content: center;  /* horizontal centering */
+    align-items: flex-start;
+    gap: 25px;
+    padding: 30px;
 }
 
-.moolah {
-    text-shadow:
-    0 0 6px #00c3ff,
-    0 0 15px #00c3ff,
-    0 0 25px #00c3ff;
+.Shop-Favourites{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;  /* horizontal centering */
+    align-items: flex-start;
+    gap: 25px;
+    padding: 30px;
 }
 
 .product {
-    background: linear-gradient(145deg, #122b40, #1a3c58);
+    margin-top: 20px;
+    width: 100%;
     border-radius: 21px;
-    max-width: 220px;
+    min-width: 300px;
+    min-height: 400px;
+    max-width: 300px;
+    max-height: 400px;
     overflow-wrap: 20px;
     padding: 15px;
     color: rgb(255, 255, 255);
@@ -293,9 +304,9 @@ li a {
 }
 
 .product img {
+    /* Image HAS to be a square or it looks weird with the rounding effects */
     border-radius: 12px;
     margin-bottom: 10px;
-    object-fit: contain;
 }
 
 .product h2 {
@@ -309,12 +320,13 @@ li a {
     0 0 15px #4db8ff;
 }
 
-.product .description {
-    font-size: 1rem;
+.description {
+    font-size: 1.5rem;
     font-weight: bold;
     color: #39ff14;
     margin-bottom: 12px;
     text-align: center;
+    max-width: 70%;
     overflow-wrap: break-word;
     word-break: break-word;
 }
@@ -325,8 +337,69 @@ li a {
     gap: 6px;
     font-weight: 700;
     font-size: 1rem;
-    color: #8e7be8;
     position: relative;
+}
+
+/* This is the color schemes for the each symbol of the currencies */
+/* Also the size gets gradually bigger as the value of the product increases */
+.Bitz {
+    font-size: 1.5em;
+    color: #ff3b4a;
+    text-shadow:
+    0 0 4px  #ff5a6a,
+    0 0 8px  #ff2b3a,
+    0 0 14px #ff0f1f,
+    0 0 22px #ff0012;
+}
+
+.Bytz {
+    font-size: 1.6em;
+    color: #ff7b3b;
+    text-shadow:
+    0 0 4px  #ffa56b,
+    0 0 8px  #ff7e3a,
+    0 0 14px #ff5c00,
+    0 0 22px #ff3c00;
+}
+
+.Kilobytz {
+    font-size: 1.7em;
+    color: #ffe74a;
+    text-shadow:
+    0 0 4px  #fff27a,
+    0 0 8px  #ffe23a,
+    0 0 14px #ffcf00,
+    0 0 22px #ffb700;
+}
+
+.Megabytz {
+    font-size: 1.8em;
+    color: #5aff5a;
+    text-shadow:
+    0 0 4px  #8aff8a,
+    0 0 8px  #34ff34,
+    0 0 14px #00ff00,
+    0 0 22px #00d900;
+}
+
+.Gigabytz {
+    font-size: 1.9em;
+    color: #4ab6ff;
+    text-shadow:
+    0 0 4px  #7ad0ff,
+    0 0 8px  #3a9eff,
+    0 0 14px #007bff,
+    0 0 22px #005bff;
+}
+
+.Hackabytz {
+    font-size: 2em;
+    color: #c45aff;
+    text-shadow:
+    0 0 4px  #d98aff,
+    0 0 8px  #c23aff,
+    0 0 14px #a500ff,
+    0 0 22px #7e00ff;
 }
 
 .label {
@@ -345,6 +418,7 @@ li a {
 }
 
 .insufficient-funds:hover{
+    cursor: pointer;
     font-weight: bold;
     transition: ease 0.3s;
     color: #fd3434;
@@ -355,8 +429,6 @@ li a {
     0 0 4px #ff7a95;
 }
 
-
-
 .canafford {
     text-shadow: none;
     border-radius: 10px;
@@ -365,6 +437,7 @@ li a {
 }
 
 .canafford:hover{
+    cursor: pointer;
     text-shadow:
     0 0 4px #00ff44,
     0 0 8px #6aff6a,

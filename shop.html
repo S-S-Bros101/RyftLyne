@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" />
     <link rel="icon" type="image/png" href="ryftlyne-logo.png" />
 </head>
-<body>
+<body id="bodyITSELF">
     <p id = "currentValue" class="NetWorth" >WhatIgot?</p>
     <nav class="navBar">
         <ul>
@@ -22,31 +22,42 @@
     </nav>
     
     <!-- Container where JS inserts product cards -->
+
+    <!--Div for favourited items-->
+    <h1 id="FAVES" style="color: rgb(22, 160, 202) ;" >Favourited Items!</h1>    
+    <div class="Shop-Favourites" id="Shop-Favourites">
+    </div>    
+    <!--Normal Shop features-->
+    <h1 id="SHOP" >Shop</h1>
     <div id="Shop"></div>
-    
-    <!-- User settings panel -->
-    <div class="UserSettings">
-        <div id="CoolorsChange" class="UserPfp">
-            <!--Its supposed to open your slack account!-->
-            <a style="all: unset" target="_blank" href="https://guthib.com">
-                <img src="https://shapes.inc/api/public/avatar/ryomensukunamanga"
-                height="60" width="60" id="pfp" alt="User profile picture" />
-            </a>
-        </div>
-        
-        <div class="DropdownMenu">
-            <!--testing purposes, still testing lol-->
-            <a href="Profile.html" id="PersonalStats" 
-            style="cursor:pointer">
-                <b>Profile</b>
-            </a>
-            
-            <a href="https://guthib.com" id="Signout" target="_blank" style="cursor:pointer">
-                <b>Log out</b>
-            </a>
-        </div>
+    <!--Divs for randomization of items-->
+    <div id="Rand1"></div>
+    <div id="Rand2"></div>
+    <div id="Rand3"></div>
+</div>
+
+<!-- User settings panel -->
+<div class="UserSettings">
+    <div id="CoolorsChange" class="UserPfp">
+        <!--Its supposed to open your slack account!-->
+        <a style="all: unset" target="_blank" href="https://guthib.com">
+            <img src="https://shapes.inc/api/public/avatar/ryomensukunamanga"
+            height="60" width="60" id="pfp" alt="User profile picture" />
+        </a>
     </div>
     
-    <script src="shop.js"></script>
+    <div class="DropdownMenu">
+        <!--testing purposes, still testing lol-->
+        <a href="Profile.html" id="PersonalStats" 
+        style="cursor:pointer">
+        <b>Profile</b>
+    </a>
+    
+    <a href="https://guthib.com" id="Signout" target="_blank" style="cursor:pointer">
+        <b>Log out</b>
+    </a>
+</div>
+</div>
+<script src="shop.js"></script>
 </body>
 </html>
