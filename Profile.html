@@ -4,18 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RyftLyne</title>
-  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./Profile.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap">
   <link rel="icon" type="image/png" href="ryftlyne-logo.png">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&display=swap">
 </head>
 <body>
-  
+  <nav class="navBar">
+    <ul>
+      <!-- Navigation Bar -->
+      <li><a href="index.html">RyftLyne</a></li>
+      <!--to do later LOL-->
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="RSVP.html">RSVP</a></li>
+    </ul>
+  </nav>
   <!--User settings and preferences-->
   <div class="UserSettings">
     <div id="CoolorsChange" class="UserPfp">
       <!--Its supposed to open your slack account!-->
-      <a style="all: unset" target="_blank" href="https://guthib.com" ><img src ="https://shapes.inc/api/public/avatar/ryomensukunamanga" 
+      <a style="all: unset;" target="_blank" href="https://guthib.com" ><img src ="https://shapes.inc/api/public/avatar/ryomensukunamanga" 
         height="60" width="60" id="pfp" ></a>
       </div>
       <div class="DropdownMenu">
@@ -34,9 +43,25 @@
     <button>Reset all</button><br>
     <h1>Currency</h1>
     <div id="currencySelection">
-      <h2>Choose a currency to show it in!</h2>
+      <h2>Choose a currency to show it in!</h2><br> 
+      <select onchange="changeCurrency(this.value)" class="select" id="currencyThingy">
+        <option value="1">Bitz</option>
+        <option value="2">Bytz</option>
+        <option value="3">Kilobytz</option>
+        <option value="4">Megabytz</option>
+        <option value="5">Gigabytz</option>
+        <option value="6">Hackabytz</option>
+      </select><br>
+      <img class="currencyImg" id="currencythingy1" src="Currency/Bitz.png" >
+      <img class="currencyImg" id="currencythingy2" src="Currency/Bytz.png" >
+      <img class="currencyImg" id="currencythingy3" src="Currency/Kilobytz.png" >
+      <img class="currencyImg" id="currencythingy4" src="Currency/Megabytz.png" >
+      <img class="currencyImg" id="currencythingy5" src="Currency/Gigabytz.png" >
+      <img class="currencyImg" id="currencythingy6" src="Currency/Hackabytz.png" >
     </div>
-    <button>Default Currency</button>
+    <button onclick="changeCurrency(1)" >Default Currency</button>
+    <br><br>
+    <button>Reset all</button><br><br>
     <!-- Need to add more features! -->
   </div>
   <script src="Profile.js"></script>

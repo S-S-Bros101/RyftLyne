@@ -41,7 +41,7 @@ Cli.style.margin = '2em auto';
 //:sob: accidentally deleted this part of the code once and it TOOK FORVER TO FIGURE OUT WHAT WAS WRONG
 const output = document.createElement('div');
 output.style.minHeight = '2em';
-output.style.maxHeight = '500px';
+output.style.maxHeight = '300px';
 output.style.overflowY = 'auto';
 /*VIC, very import code T-T   DO NOT DELETE*/
 
@@ -94,10 +94,10 @@ function ButtonColorChnage() {
     // apply border color to both buttons
     const rgb = 'rgb(' + inputColor + ', ' + inputColor + ', ' + inputColor + ')';
     
-    button1.style.border = `2px solid ${rgb}`;
+    button1.style.border = `3px solid ${rgb}`;
     button1.style.borderRadius = '5px';
     
-    button2.style.border = `2px solid ${rgb}`;
+    button2.style.border = `3px solid ${rgb}`;
     button2.style.borderRadius = '5px';
 }
 

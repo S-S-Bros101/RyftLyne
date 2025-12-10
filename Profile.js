@@ -25,14 +25,41 @@ function ButtonColorChnage() {
         inputColor--;
     }
     
-    button1.style.border = '2px solid rgb(' + inputColor + ', ' + inputColor + ', ' + inputColor + ')';
+    button1.style.border = '3px solid rgb(' + inputColor + ', ' + inputColor + ', ' + inputColor + ')';
     button1.style.borderRadius = '5px';// the above code resets it so its over here! THis was imported from somewhere lol
     
 }
 setInterval( ButtonColorChnage, 20);
 
+const currencye = document.getElementById('currencythingy' + getCookie('Currency'));
+currencye.style.display = "block";
+
 function changeCurrency (currency){
-    setCookie("BetaCurrency", currency ,29);
+    //check for if its null and also to get the value
+    const currencyNum = Number(currency);
+    
+    if(currencyNum){
+        console.log("Selected currency value:", currencyNum);
+        
+        for(let i = 1; i <= 6; i++){
+            const currencye = document.getElementById('currencythingy' + i);
+            if (currencye) { //check if not null
+                if(i === currencyNum){
+                    currencye.style.display = "block";
+                } else {
+                    currencye.style.display = "none";
+                }
+            }
+        }
+        
+        setCookie("", 6, 30);
+        setCookie("Currency", currencyNum , 29);
+    } 
+    //incase it gets 0, which is physically impossible :(
+    else {
+        setCookie("Currency", currencyNum , 29);
+        console.log("Currency cleared or invalid:", currencyNum);
+    }
 }
 
 //Some old code from my custom cookie clicker thingy for the site cookies

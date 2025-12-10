@@ -2,7 +2,8 @@ SignedIn = true;
 itemnum = 0;
 ItemDetails = [];
 ShopItems = [];
-let bytez = 2528;
+let fadeVal = 0;
+let bytez = mybytez();
 let button1 = document.getElementById("PersonalStats");
 let button2 = document.getElementById("Signout");
 // MY COOL new CURRENCY!!!
@@ -57,8 +58,19 @@ NOte the symbols look a little too similar to cryptocurrency :cryin:
 //create a thingy to budget to find out how many hours you have to do to afford something in hc
 
 
+//this is to reset the cookie values and to set myBytez val!    
 function mybytez(){
-    
+    if(getCookie("myBytez") === 0){
+        setCookie("myBytez", 1, 30);
+        location.reload();
+    }else{
+    //     return getCookie("myBytez"); for testing only!
+        let cookie = prompt("How many bitz do you have?");
+        if(cookie){
+            setCookie("myBytez", parseInt(Math.floor(cookie)), 30 );
+            return parseInt(Math.floor(cookie));
+        }
+    }
 }
 
 
@@ -66,7 +78,6 @@ window.onload = () => {
     showCurrency();
     button1 = document.getElementById("PersonalStats");
     button2 = document.getElementById("Signout");
-    
 };
 
 // document.getElementById('myElementId').scrollIntoView({ behavior: 'smooth' });
@@ -108,10 +119,10 @@ function ButtonColorChnage() {
         inputColor--;
     }
     
-    button1.style.border = '2px solid rgb(' + inputColor + ', ' + inputColor + ', ' + inputColor + ')';
+    button1.style.border = '3px solid rgb(' + inputColor + ', ' + inputColor + ', ' + inputColor + ')';
     button1.style.borderRadius = '5px';// the above code resets it so its over here! THis was imported from somewhere lol
     
-    button2.style.border = '2px solid rgb(' + inputColor + ', ' + inputColor + ', ' + inputColor + ')';
+    button2.style.border = '3px solid rgb(' + inputColor + ', ' + inputColor + ', ' + inputColor + ')';
     button2.style.borderRadius = '5px';// the above code resets it so its over here!
     
 }
@@ -138,7 +149,6 @@ CreateProduct("17", "diqwdqd", "", "https://a.thumbs.redditmedia.com/ORzuv1AmOv8
 CreateProduct("18", "expect", "", "https://a.thumbs.redditmedia.com/ORzuv1AmOv8dWigyEryGNS4Jih5RoqPrwb5giTHVvy4.jpg", 2900);
 CreateProduct("19", "lol", "", "https://a.thumbs.redditmedia.com/ORzuv1AmOv8dWigyEryGNS4Jih5RoqPrwb5giTHVvy4.jpg", 3000);
 
-let fadeVal = 0;
 let inc = false;
 function fade(){
     if(fadeVal == 0){
@@ -183,6 +193,11 @@ function showCurrency(){
             }
             blink1 = !blink1;
         }, 400);
+    });
+    
+    //to change your current currency!
+    Moolah.addEventListener("click", () => {
+        window.open('Profile.html', '_blank');
     });
     
     const CurrentMoolah = getbestcurrency(bytez, currencyDivisor(cookie),cookie,2);
@@ -260,32 +275,41 @@ function CreateProduct(Name, Description, shortDescription, ImageSrc, Cost){
     }
     
     //maek the cost dim and brighten forever
-    setInterval(() => {
-        fade();
-        costSection.style.opacity = (200-fadeVal)/200;
-    }, 300);    
+    
     
     const title = document.createElement("h2");
     
     // Append elements in costSection
     costSection.appendChild(cost);
     // costSection.appendChild(icon);
-    
-    if (bytez >= Cost) {
-        if (canBuyCount > 0) {
-            const CanAfford = document.createElement("span");
-            CanAfford.className = "canafford";
-            CanAfford.textContent = "You can buy " + (Math.round(bytez/Cost));
-            title.appendChild(CanAfford);
-            title.className = "canafford";
+    function recheck(){
+        if (bytez >= Cost) {
+            if (canBuyCount > 0) {
+                const CanAfford = document.createElement("span");
+                CanAfford.className = "canafford";
+                CanAfford.textContent = "You can buy " + (Math.round(bytez/Cost));
+                title.appendChild(CanAfford);
+                title.className = "canafford";
+                
+                // CanAfford.addEventListener("click", () => {
+                //     buyItem(Cost);
+                //     recheck();
+                // });
+            }
+        } else {
+            const InsufficientFunds = document.createElement("span");
+            InsufficientFunds.className = "insufficient-funds";
+            InsufficientFunds.textContent = "Not enough bytez";
+            title.className = "insufficient-funds";
+            title.appendChild(InsufficientFunds);
+            
+            // CanAfford.addEventListener("click", () => {
+            //     buyItem(Cost);
+            //     recheck();
+            // });
         }
-    } else {
-        const InsufficientFunds = document.createElement("span");
-        InsufficientFunds.className = "insufficient-funds";
-        InsufficientFunds.textContent = "Not enough bytez";
-        title.className = "insufficient-funds";
-        title.appendChild(InsufficientFunds);
     }
+    recheck();
     
     //attach to div section
     card.appendChild(img);
@@ -410,7 +434,7 @@ function currencyAt(num){
         case 6:
         return "Hackabytz"; 
         
-        //this should not be seen
+        //this should not be seen AT ALL!
         default:
         return "Dm Ryomen pls";
     }
@@ -508,5 +532,7 @@ function setCookie(name, value, days) {
 
 //todo later
 function buyItem(num){
-    
+    mybytez -= num;
+    recheck();
+    // location.reload;
 }

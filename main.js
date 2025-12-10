@@ -88,10 +88,10 @@ function ButtonColorChnage() {
     //infinity increases and decreases the brightness of the border
     
     //set border color to rgb value (black to gray to white, so only 1 value needed)
-    button1.style.border = '2px solid rgb(' + inputColor + ', ' + inputColor + ', ' + inputColor + ')';
+    button1.style.border = '3px solid rgb(' + inputColor + ', ' + inputColor + ', ' + inputColor + ')';
     button1.style.borderRadius = '5px';// the above code resets it so its over here!
     
-    button2.style.border = '2px solid rgb(' + inputColor + ', ' + inputColor + ', ' + inputColor + ')';
+    button2.style.border = '3px solid rgb(' + inputColor + ', ' + inputColor + ', ' + inputColor + ')';
     button2.style.borderRadius = '5px';// the above code resets it so its over here!
     
 }
